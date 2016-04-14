@@ -9,5 +9,5 @@ Vous pouvez en suivre le développement sur notre [serveur Discord](http://disco
 
 ## Installation
 
-Dupliquez le fichier `config-sample.json` à `config.json`, et entrez-y votre `token` de bot user,
+Dupliquez le fichier `conf/credentials-sample.json` à `conf/credentials.json`, et entrez-y votre `token` de bot user,
 tel que décrit dans la documentation de l'API Discord.

@@ -2,7 +2,8 @@ const http = require('http'),
 	express = require('express'),
 	DiscordClient = require('discord.io');
 
-const config = require('./config.json');
+const credentials = require('./conf/credentials.json'),
+	messages = require('./conf/messages.json');
 
 /** EXPRESS SERVER */
 
@@ -20,15 +21,15 @@ app.use((req, res, next) => {
 /** DISCORD CLIENT */
 
 var bot = new DiscordClient({
-	token: config.token,
+	token: credentials.token,
 	autorun: true
 });
 
 bot.on('ready', () => {
 	bot.connect();
 	bot.sendMessage({
-		to: config['dev-channel-id'],
-		message: 'OYEZ, OYEZ! (Philibert s\'est connecté à Discord)'
+		to: credentials['target-channel-id'],
+		message: messages['logged-in']
 	});
 	console.log(bot.username + '(' + bot.id + ') logged in successfully');
 });
@@ -40,12 +41,10 @@ var httpServer = app.listen(8080, () => {
 });
 
 httpServer.on('close', () => {
-	console.log('Sending message');
 	bot.sendMessage({
-		to: config['dev-channel-id'],
-		message: 'À la revoyure! (Philibert s\'est déconnecté de Discord)'
+		to: credentials['target-channel-id'],
+		message: messages['logged-out']
 	});
-	console.log('Disconnecting...');
 	bot.disconnect();
 	console.log(bot.username + '(' + bot.id + ') logged out successfully');
 });
