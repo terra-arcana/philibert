@@ -1,0 +1,19 @@
+{
+  "name": "philibert",
+  "version": "0.1.0",
+  "description": "Discord Bot used for Terra Arcana",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/terra-arcana/philibert"
+  },
+  "author": "Frédéric Bolduc <bolducfrederic@gmail.com>",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "ejs": "^2.4.1",
+    "express": "^4.13.4"
+  }
+}
