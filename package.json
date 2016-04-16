@@ -15,6 +15,7 @@
   "dependencies": {
     "discord.io": "^1.8.8",
     "ejs": "^2.4.1",
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "sprintf-js": "^1.0.3"
   }
 }

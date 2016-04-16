@@ -1,7 +1,8 @@
 const http = require('http'),
 	express = require('express');
 
-const TerraDiscordBot = require('./terra-discord-bot.js');
+const TerraDiscordBot = require('./terra-discord-bot.js'),
+	TerraJenkinsHandler = require('./terra-jenkins-handler.js');
 
 /**
  * A PhilibertApp is the main entry point of Philibert.
@@ -26,6 +27,12 @@ var PhilibertApp = function PhilibertApp() {
 	 * @type {TerraDiscordBot}
 	 */
 	this.discordBot = new TerraDiscordBot();
+
+	/**
+	 * The Jenkins handler instance
+	 * @type {TerraJenkinsHandler}
+	 */
+	this.handler = new TerraJenkinsHandler(this.app, this.discordBot);
 
 	// Method binding
 
